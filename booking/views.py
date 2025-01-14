@@ -5,5 +5,6 @@ from django.views import generic
 
 # Create your views here.
 class EventList(generic.ListView):
-    queryset = Event.objects.filter(status=0)
-    template_name = 'booking/booking.html'
+    model = Event
+    # queryset = Event.objects.filter(status=0)
+    # template_name = 'booking/booking.html'
