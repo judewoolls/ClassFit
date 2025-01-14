@@ -23,6 +23,10 @@ class Event(models.Model):
 
     def number_of_bookings(self):
         return self.event_booking.count() 
+    
+    def is_full(self):
+        return self.number_of_bookings() >= self.capacity
+
 
     def __str__(self):
         return f"{self.event_name}: {self.date_of_event} from {self.start_time} to {self.end_time}"  
