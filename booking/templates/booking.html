@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Classes</h1>
+
+<div class="container">
+    {% for event in event_list %}
+    <div><span>{{ event.event_name}}</span> by {{event.coach.username}} <button class="btn btn-secondary">View</button><button class="btn btn-secondary">Book</button></div>
+</div>
+

@@ -3,4 +3,4 @@ from django.http import HttpResponse
 
 # Create your views here.
 def my_booking(request):
-    return render(request, 'base.html')
+    return render(request, 'templates/booking.html')
