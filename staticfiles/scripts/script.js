@@ -13,3 +13,12 @@ function navigateTo(rawDate) {
     console.log("Navigating to:", formattedDate);
     window.location.href = `/booking/${formattedDate}/`;
 }
+
+function navigateToCurrentDate() {
+    const d = new Date();
+    const year = d.getFullYear();
+    const month = String(d.getMonth() + 1).padStart(2, '0'); // Months are zero-based
+    const day = String(d.getDate()).padStart(2, '0');
+    const formattedDate = `${year}-${month}-${day}`;
+    window.location.href = `/booking/${formattedDate}/`;
+}
