@@ -24,7 +24,7 @@
                 <p class="card-text">
                     {{ event.description | safe }}
                 </p>
-                <a href="{% url 'booking' %}">
+                <a href="{% url 'event_search' event.date_of_event %}">
                     <div class="btn btn-secondary">Back</div>
                 </a>
             </div>
