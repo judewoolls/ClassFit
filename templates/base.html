@@ -59,6 +59,11 @@
             </div>
         </div>
     </nav>
+    {% if user.is_authenticated %}
+    <p style="text-align: right; margin-right: 4px; color: darkgray;">Logged in as {{ user.username }}</p>
+    {% else %}
+    <p style="text-align: right; margin-right: 4px; color: darkgray;">Restricted Access</p>
+    {% endif %}
 
     <main class="flex-shrink-0" id="main-content">
         {% if user.is_authenticated %}

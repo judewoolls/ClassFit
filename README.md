@@ -7,12 +7,12 @@ This project will be used as my capstone project for the Code Institute skills b
 
 The target user for this project will be a gym owner who runs a gym like the CrossFit gym I attend. This is where they have regular classes and times and these can be managed by the owner and their clients can reserve spaces and log progress.
 
-<ins>Deployed site link:</ins>[google]('https://google.com)
+<ins>Deployed site link: </ins>[ClassFit](https://classfit-9bcca60104a7.herokuapp.com/)
 
 ## <ins>Contents</ins>
 
-- Project planning
-- Technologies used
+- [Project planning](#project-planning)
+- [Technologies used](#technoglogies-used)
 - [Impact of AI Analysis](#impact-of-ai-analysis)
 - Evaluation
 
