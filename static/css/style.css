@@ -17,3 +17,11 @@ main {
 #main-content > *{
     text-align: center;
 }
+
+#date-heading {
+    margin-top: 10px;
+}
+
+.nav-link:hover {
+    cursor: pointer;
+}
