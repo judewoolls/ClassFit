@@ -33,3 +33,17 @@
 </div>
 
 {% endblock content %}
+
+{% block unauthorised_content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Welcome to ClassFit</h1>
+            <p>ClassFit is a platform that helps you find and book fitness classes in your area.</p>
+            <p>Sign up or log in to get started.</p>
+            <a href="{% url 'account_signup' %}" class="btn btn-primary">Sign Up</a>
+            <a href="{% url 'account_login' %}" class="btn btn-secondary">Log In</a>
+        </div>
+    </div>
+</div>
+{% endblock unauthorised_content %}

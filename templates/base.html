@@ -61,8 +61,13 @@
     </nav>
 
     <main class="flex-shrink-0">
+        {% if user.is_authenticated %}
         {% block content %}
         {% endblock content %}
+        {% else %}
+        {% block unauthorised_content %}
+        {% endblock unauthorised_content%}
+        {% endif %}
     </main>
 
     <footer class="footer mt-auto bg-dark text-white">
