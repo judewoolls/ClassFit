@@ -16,6 +16,7 @@ main {
 
 #main-content > *{
     text-align: center;
+    align-items: center;
 }
 
 #date-heading {
@@ -24,4 +25,8 @@ main {
 
 .nav-link:hover {
     cursor: pointer;
+}
+
+li {
+    list-style: none;
 }
