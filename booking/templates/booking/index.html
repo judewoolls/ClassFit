@@ -33,9 +33,17 @@
                             <p class="card-text text-muted h6">{{ event.start_time }} - {{ event.end_time }}</p>
                             {% if not event.is_full %}
                                 {% if event.is_user_booked %}
-                                    <button class="btn btn-danger">Cancel</button>
+                                <form action="{% url 'cancel_event' event.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="event_id" value="{{ event.id }}">
+                                    <button type="submit" class="btn btn-secondary">Cancel</button>
+                                </form>
                                 {% else %}
-                                    <button class="btn btn-secondary">Book</button>
+                                <form action="{% url 'book_event' event.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="event_id" value="{{ event.id }}">
+                                    <button type="submit" class="btn btn-primary">Book</button>
+                                </form>
                                 {% endif %}
                             {% else %}
                                 <p>Class is currently full</p>
@@ -54,22 +62,4 @@
     </div>
 </div>
 
-
 {% endblock %}
-
-
-<!-- when user is not logged in -->
-{% block unauthorised_content %}
-{% load static %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1>Welcome to ClassFit</h1>
-            <p>ClassFit is a platform that helps you find and book fitness classes in your area.</p>
-            <p>Sign up or log in to get started.</p>
-            <a href="{% url 'account_signup' %}" class="btn btn-primary">Sign Up</a>
-            <a href="{% url 'account_login' %}" class="btn btn-secondary">Log In</a>
-        </div>
-    </div>
-</div>
-{% endblock unauthorised_content %}

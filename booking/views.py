@@ -1,8 +1,9 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
-from .models import Event
+from .models import Event, Booking
 from django.views import generic
 from datetime import timedelta, datetime
+from django.contrib import messages
 
 # Create your views here.
 class EventList(generic.ListView):
@@ -25,12 +26,14 @@ def get_events_for_date(date):
     return Event.objects.filter(date_of_event=date).order_by('start_time')
 
 def event_search(request, date):
-    # Convert the string date to a datetime object
-    current_date = datetime.strptime(date, "%Y-%m-%d").date()
+    try:
+        current_date = datetime.strptime(date, "%Y-%m-%d").date()
+    except ValueError:
+        return HttpResponse("Invalid date format", status=400)
+
     previous_date = current_date - timedelta(days=1)
     next_date = current_date + timedelta(days=1)
 
-    # Query events for the current date
     events = Event.objects.filter(date_of_event=current_date, status=0)
     for event in events:
         event.is_user_booked = event.is_user_booked(request.user)
@@ -41,3 +44,32 @@ def event_search(request, date):
         "previous_date": previous_date,
         "next_date": next_date,
     })
+
+def book_event(request, event_id):
+    event = get_object_or_404(Event, pk=event_id)
+    if request.method == 'POST':
+        if event.is_full():
+            messages.error(request, "Event is full")
+            return redirect('event_search', date=event.date_of_event)
+
+        if event.is_user_booked(request.user):
+            messages.error(request, "You have already booked this event")
+            return redirect('event_search', date=event.date_of_event)
+
+        booking = Booking(event=event, user=request.user)
+        booking.save()
+        messages.success(request, "Event booked successfully")
+        return redirect('event_search', date=event.date_of_event)
+    return redirect('event_search', date=event.date_of_event)
+
+def cancel_event(request, event_id):
+    event = get_object_or_404(Event, pk=event_id)
+    if request.method == 'POST':
+        booking = Booking.objects.filter(event=event, user=request.user).first()
+        if booking:
+            booking.delete()
+            messages.success(request, "Booking canceled successfully")
+        else:
+            messages.error(request, "You do not have a booking for this event")
+        return redirect('event_search', date=event.date_of_event)
+    return redirect('event_search', date=event.date_of_event)
