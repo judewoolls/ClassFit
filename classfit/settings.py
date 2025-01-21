@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'booking',
     'homepage',
+    'logbook',
 ]
 
 SITE_ID = 1
