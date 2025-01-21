@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("accounts/", include("allauth.urls")),
     path('booking/', include('booking.urls'), name="booking-urls"),
+    path('logbook/', include('logbook.urls'), name="logbook-urls"),
     path('', include('homepage.urls')),  # Set homepage as the default page
 ]

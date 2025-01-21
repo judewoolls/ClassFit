@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}
+ClassFit | Logbook
+{% endblock title %}
+
+
+{% block content %}
+<p>Welcome to the logbook</p>
+{% endblock content %}
+
+
+
+{% block unauthorised_content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <h1>Welcome to the ClassFit Logbook</h1>
+            <p>The ClassFit logbook is a platform that helps you track and compare your fitness scores.</p>
+            <p>Sign up or log in to get started.</p>
+            <a href="{% url 'account_signup' %}" class="btn btn-primary">Sign Up</a>
+            <a href="{% url 'account_login' %}" class="btn btn-secondary">Log In</a>
+        </div>
+    </div>
+</div>
+{% endblock unauthorised_content %}
