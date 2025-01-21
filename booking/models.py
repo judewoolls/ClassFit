@@ -27,6 +27,8 @@ class Event(models.Model):
     def is_full(self):
         return self.number_of_bookings() >= self.capacity
 
+    def is_user_booked(self, user):
+        return self.event_booking.filter(user=user).exists()
 
     def __str__(self):
         return f"{self.event_name}: {self.date_of_event} from {self.start_time} to {self.end_time}"  

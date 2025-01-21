@@ -31,7 +31,9 @@ def event_search(request, date):
     next_date = current_date + timedelta(days=1)
 
     # Query events for the current date
-    events = get_events_for_date(current_date)
+    events = Event.objects.filter(date_of_event=current_date, status=0)
+    for event in events:
+        event.is_user_booked = event.is_user_booked(request.user)
 
     return render(request, "booking/index.html", {
         "events": events,
