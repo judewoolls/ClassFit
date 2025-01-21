@@ -32,11 +32,12 @@
                             <hr />
                             <p class="card-text text-muted h6">{{ event.start_time }} - {{ event.end_time }}</p>
                             {% if not event.is_full %}
+                                <p>{{event.number_of_bookings}}/{{event.capacity}}</p>
                                 {% if event.is_user_booked %}
                                 <form action="{% url 'cancel_event' event.id %}" method="POST">
                                     {% csrf_token %}
                                     <input type="hidden" name="event_id" value="{{ event.id }}">
-                                    <button type="submit" class="btn btn-secondary">Cancel</button>
+                                    <button type="submit" class="btn btn-danger">Cancel</button>
                                 </form>
                                 {% else %}
                                 <form action="{% url 'book_event' event.id %}" method="POST">
