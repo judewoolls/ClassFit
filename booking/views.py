@@ -68,7 +68,7 @@ def cancel_event(request, event_id):
         booking = Booking.objects.filter(event=event, user=request.user).first()
         if booking:
             booking.delete()
-            messages.success(request, "Booking canceled successfully")
+            messages.success(request, "Booking cancelled successfully")
         else:
             messages.error(request, "You do not have a booking for this event")
         return redirect('event_search', date=event.date_of_event)
