@@ -23,7 +23,17 @@ ClassFit | Logbook
             <h2>Recent Scores</h2>
             <ul>
                 {% for score in scores %}
-                <li>{{ score.exercise }} - {{ score.reps }} @ {{ score.weight}}kg - {{ score.created_on }} </li>
+                {% if forloop.counter <= 3 %}
+                <li>
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ score.exercise }}</h5>
+                            <p class="card-text">{{ score.reps }} reps @ {{ score.weight }}kg</p>
+                            <p>{{score.created_on}}</p>
+                        </div>
+                    </div>
+                </li>
+                {% endif %}
                 {% endfor %}
             </ul>
         </div>
@@ -33,7 +43,7 @@ ClassFit | Logbook
                 {{ filter.as_p }}
                 <button type="submit" class="btn btn-primary">Filter</button>
             </form>
-            <table>
+            <table id="leaderboard" class="table">
                 <thead>
                     <tr>
                         <th>Rank</th>

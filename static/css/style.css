@@ -30,3 +30,7 @@ main {
 li {
     list-style: none;
 }
+
+#leaderboard {
+    margin-bottom: 25px;
+}
