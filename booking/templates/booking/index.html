@@ -33,7 +33,7 @@ ClassFit | Classes | {{ current_date }}
                                 <h2 class="card-title">{{ event.event_name }}</h2>
                             </a>
 
-                            <hr />
+                            <hr>
                             <p class="card-text text-muted h6">{{ event.start_time }} - {{ event.end_time }}</p>
                             {% if not event.is_full %}
                                 <p>{{event.number_of_bookings}}/{{event.capacity}}</p>

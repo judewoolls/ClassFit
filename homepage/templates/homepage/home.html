@@ -31,6 +31,7 @@ ClassFit | {{ request.user.username }}
         </div>
         <div class="col-12 col-md-6">
             <h4>Your Recent Scores</h4>
+            <ul>
             {% for score in scores %}
             {% if forloop.counter <= 3 %}
             <li>
@@ -44,6 +45,7 @@ ClassFit | {{ request.user.username }}
             </li>
             {% endif %}
             {% endfor %}
+            </ul>
         </div>
     </div>
     <div class="col-12">
