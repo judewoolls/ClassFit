@@ -4,6 +4,7 @@ from .models import Event, Booking
 from django.views import generic
 from datetime import timedelta, datetime
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 class EventList(generic.ListView):
@@ -11,6 +12,7 @@ class EventList(generic.ListView):
     queryset = Event.objects.filter(status=0)
     template_name = 'booking/booking_home.html'
 
+@login_required
 def event_detail(request, id, date):
     current_date = datetime.strptime(date, "%Y-%m-%d").date()
     queryset = Event.objects.filter(status=0, date_of_event=current_date)
@@ -22,9 +24,11 @@ def event_detail(request, id, date):
         {"event": event}
     )
 
+@login_required
 def get_events_for_date(date):
     return Event.objects.filter(date_of_event=date).order_by('start_time')
 
+@login_required
 def event_search(request, date):
     try:
         current_date = datetime.strptime(date, "%Y-%m-%d").date()
