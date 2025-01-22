@@ -32,9 +32,22 @@ li {
 }
 
 #leaderboard {
-    margin-bottom: 25px;
+    margin-bottom: 40px;
+    margin-top: 25px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 footer {
     min-width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+    #leaderboard {
+        margin-right: 10px;
+    }
+    footer {
+        padding-right: 5px;
+    }
+    
 }
