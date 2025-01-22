@@ -8,7 +8,56 @@ ClassFit | Logbook
 
 
 {% block content %}
-<p>Welcome to the logbook</p>
+
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h1>Logbook</h1>
+            <p>Track and compare your fitness scores.</p>
+        </div>
+        <div class="col-12 col-md-6">
+            <h2>New Score</h2>
+            <div>form div</div>
+        </div>
+        <div class="col-12 col-md-6">
+            <h2>Recent Scores</h2>
+            <ul>
+                {% for score in scores %}
+                <li>{{ score.exercise }} - {{ score.reps }} @ {{ score.weight}}kg - {{ score.created_on }} </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-12">
+            <h2>Leaderboard</h2>
+            <form method="get" action="{% url 'open_log' %}">
+                {{ filter.as_p }}
+                <button type="submit" class="btn btn-primary">Filter</button>
+            </form>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Username</th>
+                        <th>Exercise</th>
+                        <th>Weight(kg)</th>
+                        <th>Reps</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for entry in leaderboard %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ entry.user }}</td>
+                        <td>{{ entry.exercise }}</td>
+                        <td>{{ entry.weight }}</td>
+                        <td>{{ entry.reps }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 {% endblock content %}
 
 
