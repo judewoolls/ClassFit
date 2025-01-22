@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% url 'edit_score' as edit_url %}
+
 {% load static %}
 
 {% block title %}
@@ -54,8 +56,11 @@ ClassFit | Logbook
                             <h5 class="card-title">{{ score.exercise }}</h5>
                             <p class="card-text">{{ score.reps }} reps @ {{ score.weight }}kg</p>
                             <p>{{score.created_on}}</p>
-                            <a href="{ url 'open_log'}" class="btn btn-secondary">Edit</a>
-                            <a href="{ url 'open_log'}" class="btn btn-danger">Delete</a>
+                            <a href="{% url 'edit_score' score.id %}" class="btn btn-secondary">Edit</a>
+                            <form method="post" action="{% url 'delete_score' score.id %}">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
                         </div>
                     </div>
                 </li>

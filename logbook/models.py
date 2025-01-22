@@ -8,6 +8,7 @@ class Exercise(models.Model):
         return self.name
 
 class Score(models.Model):
+    id = models.AutoField(primary_key=True, unique=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     exercise = models.ForeignKey(Exercise, on_delete=models.CASCADE)
     reps = models.PositiveIntegerField()
