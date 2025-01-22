@@ -46,5 +46,34 @@ ClassFit | {{ request.user.username }}
             {% endfor %}
         </div>
     </div>
+    <div class="col-12">
+        <h2>Our Leaderboard</h2>
+        <form method="get" action="{% url 'home' %}">
+            {{ filter.as_p }}
+            <button type="submit" class="btn btn-primary">Filter</button>
+        </form>
+        <table id="leaderboard" class="table">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Username</th>
+                    <th>Exercise</th>
+                    <th>Weight(kg)</th>
+                    <th>Reps</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for entry in leaderboard %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ entry.user }}</td>
+                    <td>{{ entry.exercise }}</td>
+                    <td>{{ entry.weight }}</td>
+                    <td>{{ entry.reps }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
 {% endblock %}
