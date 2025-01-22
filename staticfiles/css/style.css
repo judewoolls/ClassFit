@@ -34,3 +34,7 @@ li {
 #leaderboard {
     margin-bottom: 25px;
 }
+
+footer {
+    min-width: 100%;
+}
