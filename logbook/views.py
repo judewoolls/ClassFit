@@ -47,5 +47,6 @@ def edit_score(request, score_id):
             return redirect('open_log')
 
     return render(request, 'logbook/edit_score.html', {
-        'scoreform': scoreform
+        'scoreform': scoreform,
+        'score': score
     })
