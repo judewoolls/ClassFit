@@ -12,11 +12,19 @@ ClassFit | Classes | {{ current_date }}
 <div class="container-fluid">
     <div class="row">
         <div class="date-navigation">
-            <h2 id="date-heading">{{ current_date }}</h2>
-            <button class="btn btn-success" onclick="navigateTo('{{ previous_date }}')">Previous</button>
-            <button class="btn btn-success" onclick="navigateTo('{{ next_date }}')">Next</button>
+            <button class="btn btn-success" onclick="navigateTo('{{ previous_date }}')"><</button>
+            <h2 class="display-5" id="date-heading" style="display: inline-block;">{{ current_date }}</h2>
+            <button class="btn btn-success" onclick="navigateTo('{{ next_date }}')">></button>
         </div>
-        <!-- Blog Entries Column -->
+        {% if is_coach %}
+        <div id="add-event-button" style="margin-top: 16px;">
+            <form action="{% url 'create_event' %}" method="get">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-info">Add Event</button>
+            </form>
+        </div>
+        {% endif %}
+        <!-- Event Entries Column -->
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% if events %}
@@ -69,14 +77,7 @@ ClassFit | Classes | {{ current_date }}
                     <p>No events found for this date</p>
                 </div>
                 {% endif %}
-                {% if is_coach %}
-                <div>
-                    <form action="{% url 'create_event' %}" method="get">
-                        {% csrf_token %}
-                        <button type="submit" class="btn btn-success">Add Event</button>
-                    </form>
-                </div>
-                {% endif %}
+
             </div>
         </div>
     </div>

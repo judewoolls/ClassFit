@@ -15,10 +15,10 @@ def check_for_coach(request):
     return False
 
 # Create your views here.
-class EventList(generic.ListView):
-    model = Event
-    queryset = Event.objects.filter(status=0)
-    template_name = 'booking/booking_home.html'
+# class EventList(generic.ListView):
+#     model = Event
+#     queryset = Event.objects.filter(status=0)
+#     template_name = 'booking/booking_home.html'
 
 @login_required
 def event_detail(request, id, date):
@@ -47,7 +47,7 @@ def event_search(request, date):
     previous_date = current_date - timedelta(days=1)
     next_date = current_date + timedelta(days=1)
 
-    events = Event.objects.filter(date_of_event=current_date, status=0)
+    events = Event.objects.filter(date_of_event=current_date, status=0).order_by('start_time')
     for event in events:
         event.is_user_booked = event.is_user_booked(request.user)
 

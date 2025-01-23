@@ -56,8 +56,8 @@ ClassFit | Logbook
                             <h5 class="card-title">{{ score.exercise }}</h5>
                             <p class="card-text">{{ score.reps }} reps @ {{ score.weight }}kg</p>
                             <p>{{score.created_on}}</p>
-                            <a href="{% url 'edit_score' score.id %}" class="btn btn-secondary">Edit</a>
-                            <form method="post" action="{% url 'delete_score' score.id %}">
+                            <a href="{% url 'edit_score' score.id %}" class="btn btn-info" id="edit-scores-button">Edit</a>
+                            <form method="post" action="{% url 'delete_score' score.id %}" id="delete-scores-form">
                                 {% csrf_token %}
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>

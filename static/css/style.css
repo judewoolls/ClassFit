@@ -23,6 +23,18 @@ main {
     margin-top: 10px;
 }
 
+#add-event-button {
+    margin-top: 16px;
+}
+
+#edit-score-button {
+    display: inline-block;
+}
+
+#delete-scores-form {
+    display: inline;
+}
+
 .nav-link:hover {
     cursor: pointer;
 }
