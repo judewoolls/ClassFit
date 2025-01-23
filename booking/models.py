@@ -8,10 +8,17 @@ EVENT_STATUS = ((0, 'Future'),(1,'Past'))
 
 #### Event model ######
 
+class Coach(models.Model):
+    coach = models.ForeignKey(User, on_delete=models.CASCADE, related_name="coach")
+    join_date = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.coach.username} ({self.join_date})"
+
 class Event(models.Model):
     id = models.AutoField(primary_key=True, unique=True)
     coach = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name="coach_on_booking"
+        Coach, on_delete=models.CASCADE, related_name="coach_on_booking"
     )
     event_name = models.CharField(max_length=200)
     description = models.TextField()

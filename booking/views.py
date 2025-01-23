@@ -1,10 +1,17 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import HttpResponse
-from .models import Event, Booking
+from .models import Event, Booking, Coach
 from django.views import generic
 from datetime import timedelta, datetime
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+
+def check_for_coach(request):
+    coaches = Coach.objects.all()
+    for coach in coaches:
+        if request.user == coach.coach:
+            return True
+    return False
 
 # Create your views here.
 class EventList(generic.ListView):
@@ -42,11 +49,14 @@ def event_search(request, date):
     for event in events:
         event.is_user_booked = event.is_user_booked(request.user)
 
+    is_coach = check_for_coach(request)
+
     return render(request, "booking/index.html", {
         "events": events,
         "current_date": current_date,
         "previous_date": previous_date,
         "next_date": next_date,
+        'is_coach': is_coach,
     })
 
 def book_event(request, event_id):
