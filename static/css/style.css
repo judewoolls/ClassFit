@@ -12,6 +12,7 @@ body {
 
 main {
     flex: 1;
+    margin-top: 40px;
 }
 
 #main-content > *{
@@ -47,6 +48,10 @@ li {
     margin-bottom: 40px;
     margin-top: 40px;
     max-width: 90%;
+}
+
+#edit-event-form {
+    margin-bottom: 40px;
 }
 
 footer {
