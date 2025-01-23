@@ -5,6 +5,7 @@ from django.views import generic
 from datetime import timedelta, datetime
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from .forms import EventForm
 
 def check_for_coach(request):
     coaches = Coach.objects.all()
@@ -101,3 +102,18 @@ def delete_event(request, event_id):
         return redirect('event_search', date=event.date_of_event)
     return redirect('event_search', date=event.date_of_event)
 
+def create_event(request):
+    if request.method == 'POST':
+        form = EventForm(request.POST)
+        if form.is_valid():
+            event = form.save(commit=False)
+            event.coach = Coach.objects.get(coach=request.user)
+            event.save()
+            messages.success(request, "Event created successfully")
+            return redirect('event_search', date=event.date_of_event)
+    return render(
+        request,
+        "booking/create_event.html",
+        {"coaches": Coach.objects.filter(coach=request.user),
+         'form': EventForm()}
+    )

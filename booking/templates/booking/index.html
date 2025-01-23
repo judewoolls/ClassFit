@@ -36,7 +36,7 @@ ClassFit | Classes | {{ current_date }}
                             <hr>
                             <p class="card-text text-muted h6">{{ event.start_time }} - {{ event.end_time }}</p>
                             <p>{{event.number_of_bookings}}/{{event.capacity}}</p>
-                            {% if user.coach %}
+                            {% if is_coach %}
                                 <form action="{% url 'delete_event' event.id %}" method="POST">
                                     {% csrf_token %}
                                     <button type="submit" class="btn btn-danger">Delete</button>
@@ -69,9 +69,9 @@ ClassFit | Classes | {{ current_date }}
                     <p>No events found for this date</p>
                 </div>
                 {% endif %}
-                {% if user.coach %}
+                {% if is_coach %}
                 <div>
-                    <form action="{% url 'add_event' %}" method="POST">
+                    <form action="{% url 'create_event' %}" method="get">
                         {% csrf_token %}
                         <button type="submit" class="btn btn-success">Add Event</button>
                     </form>
