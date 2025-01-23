@@ -25,6 +25,12 @@ ClassFit | {{ event.event_name }}
                 <a href="{% url 'event_search' event.date_of_event %}">
                     <div class="btn btn-secondary">Back</div>
                 </a>
+                {% if is_coach %}
+                <form action="{% url 'edit_event' event.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-info">Edit</button>
+                </form>
+                {% endif %}
             </div>
         </div>
     </div>

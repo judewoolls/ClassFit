@@ -29,7 +29,8 @@ def event_detail(request, id, date):
     return render(
         request,
         "booking/event_detail.html",
-        {"event": event}
+        {"event": event,
+         'is_coach': check_for_coach(request)}
     )
 
 @login_required
@@ -116,4 +117,19 @@ def create_event(request):
         "booking/create_event.html",
         {"coaches": Coach.objects.filter(coach=request.user),
          'form': EventForm()}
+    )
+
+def edit_event(request, event_id):
+    event = get_object_or_404(Event, pk=event_id)
+    if request.method == 'POST':
+        form = EventForm(request.POST, instance=event)
+        if form.is_valid():
+            event = form.save()
+            messages.success(request, "Event updated successfully")
+            return redirect('event_search', date=event.date_of_event)
+    return render(
+        request,
+        "booking/edit_event.html",
+        {"event": event,
+         'form': EventForm(instance=event)}
     )
