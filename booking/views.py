@@ -59,6 +59,7 @@ def event_search(request, date):
         'is_coach': is_coach,
     })
 
+## used to create a booking
 def book_event(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
     if request.method == 'POST':
@@ -76,6 +77,7 @@ def book_event(request, event_id):
         return redirect('event_search', date=event.date_of_event)
     return redirect('event_search', date=event.date_of_event)
 
+## used to cancel a booking
 def cancel_event(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
     if request.method == 'POST':
@@ -87,3 +89,15 @@ def cancel_event(request, event_id):
             messages.error(request, "You do not have a booking for this event")
         return redirect('event_search', date=event.date_of_event)
     return redirect('event_search', date=event.date_of_event)
+
+
+### The coach views ###
+
+def delete_event(request, event_id):
+    event = get_object_or_404(Event, pk=event_id)
+    if request.method == 'POST':
+        event.delete()
+        messages.success(request, "Event deleted successfully")
+        return redirect('event_search', date=event.date_of_event)
+    return redirect('event_search', date=event.date_of_event)
+
