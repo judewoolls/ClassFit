@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from .forms import EventForm
 
+
 def check_for_coach(request):
     coaches = Coach.objects.all()
     for coach in coaches:
@@ -19,6 +20,7 @@ def check_for_coach(request):
 #     model = Event
 #     queryset = Event.objects.filter(status=0)
 #     template_name = 'booking/booking_home.html'
+
 
 @login_required
 def event_detail(request, id, date):
@@ -33,9 +35,11 @@ def event_detail(request, id, date):
          'is_coach': check_for_coach(request)}
     )
 
+
 @login_required
 def get_events_for_date(date):
     return Event.objects.filter(date_of_event=date).order_by('start_time')
+
 
 @login_required
 def event_search(request, date):
@@ -47,7 +51,8 @@ def event_search(request, date):
     previous_date = current_date - timedelta(days=1)
     next_date = current_date + timedelta(days=1)
 
-    events = Event.objects.filter(date_of_event=current_date, status=0).order_by('start_time')
+    events = Event.objects.filter(date_of_event=current_date, status=0)
+    events = events.order_by('start_time')
     for event in events:
         event.is_user_booked = event.is_user_booked(request.user)
 
@@ -61,7 +66,8 @@ def event_search(request, date):
         'is_coach': is_coach,
     })
 
-## used to create a booking
+
+# used to create a booking
 def book_event(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
     if request.method == 'POST':
@@ -79,11 +85,13 @@ def book_event(request, event_id):
         return redirect('event_search', date=event.date_of_event)
     return redirect('event_search', date=event.date_of_event)
 
-## used to cancel a booking
+
+# used to cancel a booking
 def cancel_event(request, event_id):
+    user = request.user
     event = get_object_or_404(Event, pk=event_id)
     if request.method == 'POST':
-        booking = Booking.objects.filter(event=event, user=request.user).first()
+        booking = Booking.objects.filter(event=event, user=user).first()
         if booking:
             booking.delete()
             messages.success(request, "Booking cancelled successfully")
@@ -93,7 +101,7 @@ def cancel_event(request, event_id):
     return redirect('event_search', date=event.date_of_event)
 
 
-### The coach views ###
+# The coach views
 
 def delete_event(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
@@ -102,6 +110,7 @@ def delete_event(request, event_id):
         messages.success(request, "Event deleted successfully")
         return redirect('event_search', date=event.date_of_event)
     return redirect('event_search', date=event.date_of_event)
+
 
 def create_event(request):
     if request.method == 'POST':
@@ -118,6 +127,7 @@ def create_event(request):
         {"coaches": Coach.objects.filter(coach=request.user),
          'form': EventForm()}
     )
+
 
 def edit_event(request, event_id):
     event = get_object_or_404(Event, pk=event_id)

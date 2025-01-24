@@ -11,7 +11,7 @@ def logbook_view(request):
 
     if user.is_authenticated:
 
-        scores = Score.objects.filter(user=request.user).order_by('-created_on')
+        scores = Score.objects.filter(user=user).order_by('-created_on')
         scoreform = ScoreForm()
 
         if request.method == 'POST':
@@ -23,7 +23,6 @@ def logbook_view(request):
                 messages.success(request, "Score added successfully")
                 scoreform = ScoreForm()
                 return redirect('open_log')
-                
 
         return render(request, 'logbook/logbook.html', {
             'exercises': Exercise.objects.all(),
@@ -34,6 +33,7 @@ def logbook_view(request):
     else:
         return render(request, 'logbook/logbook.html')
 
+
 def delete_score(request, score_id):
     score = get_object_or_404(Score, id=score_id, user=request.user)
     if request.method == 'POST':
@@ -41,6 +41,7 @@ def delete_score(request, score_id):
         messages.success(request, "Score deleted successfully")
         return redirect('open_log')
     return redirect('open_log')
+
 
 def edit_score(request, score_id):
     score = get_object_or_404(Score, id=score_id, user=request.user)
