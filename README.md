@@ -69,7 +69,13 @@ All the pages passed with the following message:
 
 ![image](readMe-images/CSS-validation.png)
 
+### Python Standards
 
+Main python:
+- Each python file has been validated to pep8 standards 
+
+Testing python:
+- None
 
 
 

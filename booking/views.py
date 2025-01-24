@@ -15,12 +15,6 @@ def check_for_coach(request):
             return True
     return False
 
-# Create your views here.
-# class EventList(generic.ListView):
-#     model = Event
-#     queryset = Event.objects.filter(status=0)
-#     template_name = 'booking/booking_home.html'
-
 
 @login_required
 def event_detail(request, id, date):
