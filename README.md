@@ -13,8 +13,9 @@ The target user for this project will be a gym owner who runs a gym like the Cro
 
 - [Project planning](#project-planning)
 - [Technologies used](#technoglogies-used)
+- [Testing](#testing)
 - [Impact of AI Analysis](#impact-of-ai-analysis)
-- Evaluation
+- [Evaluation](#evaluation)
 
 
 ## Project Planning
@@ -57,6 +58,30 @@ The site was deployed using **heroku web servcies** and used **GitHub** for vers
 ClassFit was developed using the python framework **Django** on the backend working with a **Postgres database**. For the frontend I made use of **HTML**, **CSS**, **Javacript** and I also used the **bootstrap framework** to improve development speed and allow the project to be responsive. Another key factor in speeding up the devlopment was the use of AI. The main AI tools used where ChatGPT and Github Copilot. I will go into further detail about the impact of these tools [here.](#impact-of-ai-analysis)
 
 
+
+## Testing
+
+### HTML Validation
+All the pages passed with the following message:
+![image](readMe-images/HTML-validation.png)
+
+### CSS Validation 
+
+![image](readMe-images/CSS-validation.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ## Impact of AI Analysis
 
 The main tools used:
@@ -77,3 +102,6 @@ The main tools used:
  When using ChatGPT it gave me some code snippets for an idea that I had been talking through for the events/classes booking system. For my project I used different variable names and this caused confusion and I had to go through and change them.
 
  Another frustrating part was when passing the date from django to javascript it initially struggled to change the date format to the required format.
+
+
+ ## Evaluation
