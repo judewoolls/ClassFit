@@ -1,7 +1,5 @@
 {% extends 'base.html' %}
 
-{% url 'edit_score' as edit_url %}
-
 {% load static %}
 
 {% block title %}
@@ -29,35 +27,36 @@ ClassFit | Logbook
         </div>
         <div class="col-12 col-md-6">
             <h2>Recent Scores</h2>
-            <ul>
+            <ul class="list-unstyled">
                 {% for score in scores %}
-                {% if forloop.counter <= 3 %} <li>
-                    <div class="card text-bg-success">
+                {% if forloop.counter <= 3 %}
+                <li class="d-flex justify-content-center mb-3">
+                    <div class="card text-bg-success flex-grow-1 mx-2">
                         <div class="card-body">
                             <h5 class="card-title">{{ score.exercise }}</h5>
                             <p class="card-text">{{ score.reps }} reps @ {{ score.weight }}kg</p>
-                            <p>{{score.created_on}}</p>
+                            <p>{{ score.created_on }}</p>
                         </div>
                     </div>
-                    </li>
-                    {% endif %}
-                    {% endfor %}
+                </li>
+                {% endif %}
+                {% endfor %}
             </ul>
         </div>
     </div>
     <div class="row">
         <div class="col-12">
             <h1>All Scores</h1>
-            <ul>
+            <ul class="list-unstyled">
                 {% for score in scores %}
-                <li>
-                    <div class="card text-bg-dark">
+                <li class="d-flex justify-content-center mb-3">
+                    <div class="card text-bg-dark flex-grow-1 mx-2">
                         <div class="card-body">
                             <h5 class="card-title">{{ score.exercise }}</h5>
                             <p class="card-text">{{ score.reps }} reps @ {{ score.weight }}kg</p>
-                            <p>{{score.created_on}}</p>
+                            <p>{{ score.created_on }}</p>
                             <a href="{% url 'edit_score' score.id %}" class="btn btn-info" id="edit-scores-button">Edit</a>
-                            <form method="post" action="{% url 'delete_score' score.id %}" id="delete-scores-form">
+                            <form method="post" action="{% url 'delete_score' score.id %}" id="delete-scores-form" class="d-inline">
                                 {% csrf_token %}
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
@@ -76,7 +75,7 @@ ClassFit | Logbook
 {% block unauthorised_content %}
 <div class="container">
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 mx-auto text-center">
             <h1>Welcome to the ClassFit Logbook</h1>
             <p>The ClassFit logbook is a platform that helps you track and compare your fitness scores.</p>
             <p>Sign up or log in to get started.</p>
