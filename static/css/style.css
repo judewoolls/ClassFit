@@ -20,6 +20,10 @@ main {
     align-items: center;
 }
 
+.card {
+    margin-bottom: 5px;
+}
+
 #date-heading {
     margin-top: 10px;
 }

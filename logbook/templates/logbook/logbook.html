@@ -32,7 +32,7 @@ ClassFit | Logbook
             <ul>
                 {% for score in scores %}
                 {% if forloop.counter <= 3 %} <li>
-                    <div class="card text-bg-dark">
+                    <div class="card text-bg-success">
                         <div class="card-body">
                             <h5 class="card-title">{{ score.exercise }}</h5>
                             <p class="card-text">{{ score.reps }} reps @ {{ score.weight }}kg</p>

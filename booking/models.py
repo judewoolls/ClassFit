@@ -13,7 +13,7 @@ class Coach(models.Model):
     join_date = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.coach.username} ({self.join_date})"
+        return f"{self.coach.username}"
 
 class Event(models.Model):
     id = models.AutoField(primary_key=True, unique=True)
