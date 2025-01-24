@@ -70,8 +70,16 @@ li {
     margin-bottom: 40px;
 }
 
-footer {
-    min-width: 100%;
+@media screen and (max-width: 600px) {
+    #leaderboard {
+        max-width: 85%;
+    }
+    footer, nav {
+        min-width: 110%;
+    }
+    
 }
+
+
 
 
