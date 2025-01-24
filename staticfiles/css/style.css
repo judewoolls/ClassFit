@@ -72,10 +72,10 @@ li {
 
 @media screen and (max-width: 600px) {
     #leaderboard {
-        max-width: 85%;
+        max-width: 75%;
     }
     footer, nav {
-        min-width: 110%;
+        min-width: 100%;
     }
     
 }
