@@ -12,6 +12,7 @@ body {
 
 main {
     flex: 1;
+    margin-top: 40px;
 }
 
 #main-content > *{
@@ -35,6 +36,14 @@ main {
     display: inline;
 }
 
+.event-timings, .event-title {
+    color: white;
+}
+
+.event-title:hover {
+    cursor: pointer;
+}
+
 .nav-link:hover {
     cursor: pointer;
 }
@@ -45,8 +54,8 @@ li {
 
 #leaderboard {
     margin-bottom: 40px;
-    margin-top: 40px;
-    max-width: 90%;
+    margin-top: 60px;
+    min-width: 100%;
 }
 
 #edit-event-form {
@@ -57,9 +66,4 @@ footer {
     min-width: 100%;
 }
 
-@media screen and (max-width: 600px) {
-    footer {
-        min-width: 110%;
-    }
-    
-}
+

@@ -22,3 +22,16 @@ function navigateToCurrentDate() {
     const formattedDate = `${year}-${month}-${day}`;
     window.location.href = `/booking/${formattedDate}/`;
 }
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    let titles = document.querySelectorAll('.event-title')
+    titles.forEach(title => {
+        title.addEventListener('mouseover', function() {
+            title.classList.add('text-info');
+        });
+        title.addEventListener('mouseout', function() {
+            title.classList.remove('text-info');
+        });
+    });
+});

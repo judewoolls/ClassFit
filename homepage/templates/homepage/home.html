@@ -17,7 +17,7 @@ ClassFit | {{ request.user.username }}
                 {% for booking in bookings %}
                 {% if forloop.counter <= 3 %}
                 <li>
-                    <div class="card">
+                    <div class="card text-bg-dark">
                         <div class="card-body">
                             <h5 class="card-title">{{ booking.event.event_name }}</h5>
                             <p class="card-text">@ {{booking.event.start_time}} - {{booking.event.end_time}}</p>
@@ -35,7 +35,7 @@ ClassFit | {{ request.user.username }}
             {% for score in scores %}
             {% if forloop.counter <= 3 %}
             <li>
-                <div class="card">
+                <div class="card text-bg-dark">
                     <div class="card-body">
                         <h5 class="card-title">{{ score.exercise }}</h5>
                         <p class="card-text">{{ score.reps }} reps @ {{ score.weight }}kg</p>
@@ -54,7 +54,7 @@ ClassFit | {{ request.user.username }}
             {{ filter.as_p }}
             <button type="submit" class="btn btn-primary">Filter</button>
         </form>
-        <table id="leaderboard text-center" class="table">
+        <table id="leaderboard" class="table text-center" style='background-color: white;'>
             <thead>
                 <tr>
                     <th>Rank</th>
