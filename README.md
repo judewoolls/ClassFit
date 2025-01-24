@@ -15,6 +15,7 @@ The target user for this project will be a gym owner who runs a gym like the Cro
 - [Technologies used](#technoglogies-used)
 - [Testing](#testing)
 - [Impact of AI Analysis](#impact-of-ai-analysis)
+- [Credits](#credits)
 - [Evaluation](#evaluation)
 
 
@@ -109,5 +110,9 @@ The main tools used:
 
  Another frustrating part was when passing the date from django to javascript it initially struggled to change the date format to the required format.
 
+
+## Credits
+
+Thanks to [Code Institute](https://github.com/Code-Institute-Solutions/blog/tree/main/11_authorisation/03_custom_template/templates) for the log in and sign up page templates
 
  ## Evaluation
