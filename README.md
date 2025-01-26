@@ -260,9 +260,9 @@ Acceptance criteria
 
 For this project the URL and navigation planning was essential as this could cause many issues during development if it was not thought out and followed a logical flow. So for each app they would have their own urls file.
 
-'' - used to display the log in/ sign up page
+'' - used to display the log in/ sign up page or the homepage
 
-<ins>**Booking app:**</ins>
+<ins>**Booking app**</ins>
 
 - 'booking/*datestring*' - used to display the available classes on a given date
 - 'booking/*datestring*/*eventid*' - used to display the event details of the selected event
@@ -272,7 +272,7 @@ For this project the URL and navigation planning was essential as this could cau
 <ins>**Log Book app:**</ins>
 
 - 'logbook/' - used to go to the main logbook page that displays scores and new score form
-- 'logbook/update/' - used to display form to enter an edited score
+- 'logbook/id/' - used to display form to enter an edited score
 
 <ins>**Home app:**</ins>
 
@@ -343,3 +343,5 @@ The main tools used:
 Thanks to [Code Institute](https://github.com/Code-Institute-Solutions/blog/tree/main/11_authorisation/03_custom_template/templates) for the log in and sign up page templates
 
  ## Evaluation
+
+ The ClassFit project currently meets all the acceptance criteria from the user stories and passes the tests for validation and features. Overall, the project was enhanced with the use of AI and specifically copilot. Classfit has all the required features and the intended use of the project is clear to the user. Coaches and users have access to different features depending on that persons needs.
