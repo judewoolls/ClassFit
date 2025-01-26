@@ -151,7 +151,111 @@ Acceptance criteria
 
 - events can be edited/updated
 
-events can be deleted
+- events can be deleted
+
+### Display cancel button if already booked
+
+As a gym member, I want to see a "Cancel" button for classes I’ve already booked so that I can easily manage my reservations.
+
+Acceptance criteria
+
+
+- If the user has already booked a class, the "Cancel" button is displayed instead of the "Book" button.
+
+- Clicking the "Cancel" button removes the user's booking for that class.
+
+- After cancellation, the system updates the remaining capacity for the class.
+
+- A confirmation message is displayed after a successful cancellation.
+
+- The "Cancel" button is replaced with the "Book" button once the user cancels their booking.
+
+
+### Add a logbook form to submit scores
+
+As a gym member, I want a logbook to record the weights and reps I complete during workouts so that I can track my progress over time.
+
+Acceptance criteria
+
+- A "Logbook" page is accessible from the navigation bar.
+
+- Users can log the following details for each entry:
+- [ ] Date
+- [ ] Exercise name
+- [ ] Weight (kg or lbs)
+- [ ] Number of reps
+- [ ] Notes (optional)
+- [ ] Logs are saved to the database and displayed in a list ordered by date (most recent first).
+
+- Users can edit or delete previous entries.
+
+- If no entries exist, a message like "No logs yet. Start tracking your workouts!" is displayed.
+
+
+### Add an edit feature to change logbook scores
+
+As a gym member, I want to edit my logbook entries so that I can correct mistakes or update my progress as needed.
+
+Acceptance criteria
+
+- Each log entry has an "Edit" button next to it.
+
+- Clicking the "Edit" button takes the user to a form pre-filled with the log entry details.
+
+- The user can change the exercise name, weight, reps, and notes.
+
+- Changes are saved to the database and reflected immediately in the logbook.
+
+- A confirmation message is displayed after successful edits.
+
+
+### Display recent scores in logbook
+
+As a gym member, I want to see my most recent scores at the top of the logbook so that I can quickly view my latest progress.
+
+Acceptance criteria
+
+- The most recent log entries appear at the top of the logbook page.
+
+- Recent scores are displayed with their exercise name, weight, reps, and date.
+
+- If no entries exist, a message like "No recent scores available" is shown.
+
+
+### Homepage
+
+As a gym member, I want the homepage to display my upcoming bookings and recent scores so that I can stay updated on my schedule and track my progress.
+
+Acceptance criteria
+
+- The homepage is the first page users see after logging in.
+
+- The "Upcoming Bookings" section lists all the classes the user has booked, ordered by date and time (soonest first).
+
+- Each booking includes the class name, date, time, and location (if applicable).
+
+- If there are no upcoming bookings, the section displays a message like "No upcoming bookings."
+
+- The "Recent Scores" section displays the user's latest performance scores (e.g., workout results, personal bests).
+
+- Each score includes the event name, date, and score achieved.
+
+- If there are no scores, the section displays a message like "No recent scores."
+
+- Both sections are styled for clarity and responsive design.
+
+### Compare scores to other users
+
+As a gym member, I want to compare my performance scores with other gym members,
+so that I can gauge how my progress measures up against others and stay motivated.
+
+Acceptance criteria
+
+- There should be a leaderboard showing the top-performing gym members based on certain scores (e.g., highest weight lifted, fastest time, most reps, etc.).
+
+- The leaderboard should be sortable by different categories (e.g., by exercise, by date range, by total score).
+
+
 ### URL planning
 
 For this project the URL and navigation planning was essential as this could cause many issues during development if it was not thought out and followed a logical flow. So for each app they would have their own urls file.
