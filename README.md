@@ -11,6 +11,7 @@ The target user for this project will be a gym owner who runs a gym like the Cro
 
 ## <ins>Contents</ins>
 
+- [Features](#features)
 - [Project planning](#project-planning)
 - [Technologies used](#technoglogies-used)
 - [Testing](#testing)
@@ -19,11 +20,41 @@ The target user for this project will be a gym owner who runs a gym like the Cro
 - [Evaluation](#evaluation)
 
 
+## Features
+
+### Main functionality
+For the ClassFit app the key features are the coach being able to set up the classes and for the user to book onto the class. These classes are displayed and styled using bootstrap for quicker development speed. The classes are displayed in the booking app and the events for each day are displayed under the corresponding date and are ordered chronologically. 
+
+For the user the booking button is displayed and they can click on the button to book onto the event or click on the event title to view the event details. For the coach the cancel button is displayed to delete the event from the database.
+
+The coach also has an additional button which is the create event button that can be used to access the form to add a class. The coach also has access to an edit event button when viewing the event details. This takes them to a similar form that can be used to adjust the details of that event.
+
+### The logbook
+
+The app also provides access to the logbook. The log displays a form to submit scores for exercises. These scores consist of exercise name, number of reps and the weight in kilograms. The score can then be added to the database. The three most recent scores are presented next to the form and below is a list of all the users scores. Each score can also be edited or deleted.
+
+### Homepage
+
+The homepage is used to display the users three soonest upcoming bookings and most recent scores. Below this is the leaderboard. The leaderboard accesses all the scores from all users and can be filtered through for each exercise, the minimium weight and reps.
+
+### Nav bar
+
+The nav bar has fully functioning links to different pages.
+
+### Login functionality
+
+The app has full user authentication.
+
+### Footer
+
+The footer has links that currently redirect to the top of the page. This can be replaced with the gyms real social media links and address.
+
 ## Project Planning
 
 ### User Stories
 
 This project was developed using an agile methodology. To include this in the project I created a project board with relevant user stories.
+
 These user stories were created to demonstrate who the main user of each feature is, what the feature will do and why this is beneficial and is followed by an acceptance criteria.
 
 
