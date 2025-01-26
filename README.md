@@ -57,9 +57,101 @@ This project was developed using an agile methodology. To include this in the pr
 
 These user stories were created to demonstrate who the main user of each feature is, what the feature will do and why this is beneficial and is followed by an acceptance criteria.
 
+### Classes displayed chronologically
 
-### include user stories
+As a gym member, I want to see the classes displayed in chronological order by date and time so that I can easily find and plan for upcoming sessions.
 
+Acceptance criteria
+
+- Classes are sorted by date in ascending order, with the earliest date appearing first.
+
+- Classes on the same date are further sorted by their start time.
+
+- Past classes are not displayed in the list of upcoming classes.
+
+- The class list updates dynamically as new classes are added or past classes expire.
+
+### Create a log in page
+
+As a gym member, I want to log in securely so that I can access personalized features like booking and managing my classes.
+
+Acceptance criteria
+
+- The application has a dedicated login page accessible from the navigation bar or homepage.
+
+- Users log in using their email/username and password.
+
+- Login credentials are validated securely, and incorrect credentials display an appropriate error message.
+
+- Upon successful login, users are redirected to the main dashboard or class listing page.
+
+- Logged-in users can access personalized features, such as viewing their bookings and managing reservations.
+
+- Logged-in users remain authenticated until they log out or their session expires.
+
+- A "Remember Me" option is available for convenience (optional).
+
+
+### Use the book button to create a booking
+
+As a gym member, I want to use a "Book" button to reserve a spot in a class so that I can easily secure my place.
+
+Acceptance criteria
+
+- Each class displays a "Book" button if there are remaining spots available.
+
+- Clicking the "Book" button creates a booking for the logged-in user.
+
+- After booking, the system updates the remaining capacity for the class.
+
+- If a class is fully booked, the "Book" button is disabled or replaced with a "Fully Booked" label.
+
+- A confirmation message is displayed to the user after a successful booking.
+
+
+### User Authentication
+As a gym member or admin,
+I want to securely log in and out of the platform,
+so that I can access my personal bookings, scores, and other features relevant to my role.
+
+Acceptance criteria
+
+
+- Role-Based Access:
+Upon login, users are directed to their dashboard, and features are customized based on their role (e.g., member or admin).
+
+
+- Authentication Feedback:
+
+    - Users see feedback such as “Logged in successfully” or “Incorrect password.”
+
+### Display the class capacity
+
+As a gym member, I want to see the total capacity of a class and the number of remaining spots so that I can know if I can book a place.
+
+Acceptance Criteria:
+
+- Each class displays the total capacity (e.g., "Capacity: 20").
+
+- The number of remaining spots is displayed dynamically (e.g., "Spots Available: 5").
+
+- If the class is fully booked, it clearly shows "Fully Booked" instead of available spots.
+
+- The displayed capacity and remaining spots update automatically as users book or cancel classes.
+
+### Coaches can manage classes
+
+As a Coach I can add classes so that my clients can book on to events
+
+Acceptance criteria
+
+- A visible add classes button (only visible to coaches)
+
+- This takes to form and can add event
+
+- events can be edited/updated
+
+events can be deleted
 ### URL planning
 
 For this project the URL and navigation planning was essential as this could cause many issues during development if it was not thought out and followed a logical flow. So for each app they would have their own urls file.
