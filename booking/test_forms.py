@@ -5,6 +5,7 @@ from .models import Coach, Event
 
 class EventFormTest(TestCase):
     def setUp(self):
+        # Create a mock user and a coach for testing
         self.user = User.objects.create(username='testuser', password='testpass')
         self.coach = Coach.objects.create(coach=self.user)
 

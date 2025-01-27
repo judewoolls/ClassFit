@@ -3,11 +3,15 @@ from django.contrib.auth.models import User
 from logbook.models import Exercise, Score
 from logbook.forms import ScoreForm
 
+
+# Test the ScoreForm
 class ScoreFormTest(TestCase):
     def setUp(self):
-        self.user = User.objects.create(username='testuser', password='testpass')
+        self.user = User.objects.create(username='testuser',
+                                        password='testpass')
         self.exercise = Exercise.objects.create(name='Test Exercise')
 
+    # Test that the form is valid when the data is valid
     def test_score_form_valid(self):
         form_data = {
             'exercise': self.exercise.id,
@@ -17,6 +21,7 @@ class ScoreFormTest(TestCase):
         form = ScoreForm(data=form_data)
         self.assertTrue(form.is_valid())
 
+    # Test that the form is invalid when the data is missing
     def test_score_form_invalid_missing_fields(self):
         form_data = {
             'exercise': self.exercise.id,
@@ -26,6 +31,7 @@ class ScoreFormTest(TestCase):
         form = ScoreForm(data=form_data)
         self.assertFalse(form.is_valid())
 
+    # Test that the form is invalid when the weight data is invalid
     def test_score_form_invalid_weight(self):
         form_data = {
             'exercise': self.exercise.id,  # Valid exercise
@@ -37,6 +43,7 @@ class ScoreFormTest(TestCase):
         self.assertNotIn('reps', form.errors)
         self.assertIn('weight', form.errors)
 
+    # Test that the form is invalid when the reps data is invalid
     def test_score_form_invalid_reps(self):
         form_data = {
             'exercise': self.exercise.id,  # Valid exercise

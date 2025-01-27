@@ -2,6 +2,7 @@ from django import forms
 from .models import Coach, Event, Booking
 
 
+# This form is used for the coach to create or edit an event
 class EventForm(forms.ModelForm):
     class Meta:
         model = Event

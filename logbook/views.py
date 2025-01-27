@@ -34,6 +34,7 @@ def logbook_view(request):
         return render(request, 'logbook/logbook.html')
 
 
+# Delete score view
 def delete_score(request, score_id):
     score = get_object_or_404(Score, id=score_id, user=request.user)
     if request.method == 'POST':
@@ -43,6 +44,7 @@ def delete_score(request, score_id):
     return redirect('open_log')
 
 
+# Edit score view
 def edit_score(request, score_id):
     score = get_object_or_404(Score, id=score_id, user=request.user)
     scoreform = ScoreForm(instance=score)

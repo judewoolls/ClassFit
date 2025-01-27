@@ -9,6 +9,7 @@ EVENT_STATUS = ((0, 'Future'), (1, 'Past'))
 # Event model ######
 
 
+# Coach model - to store which users are coaches
 class Coach(models.Model):
     coach = models.ForeignKey(User, on_delete=models.CASCADE,
                               related_name="coach")
@@ -18,6 +19,7 @@ class Coach(models.Model):
         return f"{self.coach.username}"
 
 
+# Event model - to store the events created by the coaches
 class Event(models.Model):
     id = models.AutoField(primary_key=True, unique=True)
     coach = models.ForeignKey(
@@ -44,8 +46,7 @@ class Event(models.Model):
         return f"{self.event_name}: {self.date_of_event} @ {self.start_time}"
 
 
-# Booking model
-
+# Booking model - to store the bookings made by the users
 class Booking(models.Model):
     id = models.AutoField(primary_key=True, unique=True)
     event = models.ForeignKey(
