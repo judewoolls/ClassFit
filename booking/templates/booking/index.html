@@ -50,29 +50,22 @@ ClassFit | Classes | {{ current_date }}
                                     <button type="submit" class="btn btn-danger">Delete</button>
                                 </form>
                             {% else %}
-                                {% if not event.is_full %}
-                                    {% if event.is_user_booked %}
+                                {% if event.is_user_booked %}
                                     <form action="{% url 'cancel_event' event.id %}" method="POST">
                                         {% csrf_token %}
                                         <input type="hidden" name="event_id" value="{{ event.id }}">
                                         <button type="submit" class="btn btn-danger">Cancel</button>
                                     </form>
-                                    {% else %}
+                                {% else %}
+                                    {% if not event.is_full %}
                                     <form action="{% url 'book_event' event.id %}" method="POST">
                                         {% csrf_token %}
                                         <input type="hidden" name="event_id" value="{{ event.id }}">
                                         <button type="submit" class="btn btn-info">Book</button>
                                     </form>
-                                    {% endif %}
-                                {% else %}
-                                {% if event.is_user_booked %}
-                                <form action="{% url 'cancel_event' event.id %}" method="POST">
-                                    {% csrf_token %}
-                                    <input type="hidden" name="event_id" value="{{ event.id }}">
-                                    <button type="submit" class="btn btn-danger">Cancel</button>
-                                </form>
-                                {% else %}
+                                    {% else %}
                                     <p>Class is currently full</p>
+                                    {% endif %}
                                 {% endif %}
                             {% endif %}
                         </div>
