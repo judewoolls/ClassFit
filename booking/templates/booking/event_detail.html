@@ -26,7 +26,7 @@ ClassFit | {{ event.event_name }}
                     <div class="btn btn-secondary">Back</div>
                 </a>
                 {% if is_coach %}
-                <form action="{% url 'edit_event' event.id %}" method="post" id="edit-event-button">
+                <form action="{% url 'edit_event' event.id %}" method="get" id="edit-event-button">
                     {% csrf_token %}
                     <button type="submit" class="btn btn-info">Edit</button>
                 </form>
