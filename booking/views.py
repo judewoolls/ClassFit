@@ -106,6 +106,7 @@ def delete_event(request, event_id):
     return redirect('event_search', date=event.date_of_event)
 
 
+@login_required
 def create_event(request):
     if request.method == 'POST':
         form = EventForm(request.POST)
@@ -115,14 +116,19 @@ def create_event(request):
             event.save()
             messages.success(request, "Event created successfully")
             return redirect('event_search', date=event.date_of_event)
+        else:
+            print(form.errors)  # Debugging information
+    else:
+        form = EventForm()
     return render(
         request,
         "booking/create_event.html",
         {"coaches": Coach.objects.filter(coach=request.user),
-         'form': EventForm()}
+         'form': form}
     )
 
 
+@login_required
 def edit_event(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
     if request.method == 'POST':
@@ -131,9 +137,13 @@ def edit_event(request, event_id):
             event = form.save()
             messages.success(request, "Event updated successfully")
             return redirect('event_search', date=event.date_of_event)
+        else:
+            print(form.errors)  # Debugging information
+    else:
+        form = EventForm(instance=event)
     return render(
         request,
         "booking/edit_event.html",
         {"event": event,
-         'form': EventForm(instance=event)}
+         'form': form}
     )
