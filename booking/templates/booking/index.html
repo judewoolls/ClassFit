@@ -65,6 +65,13 @@ ClassFit | Classes | {{ current_date }}
                                     </form>
                                     {% endif %}
                                 {% else %}
+                                {% if event.is_user_booked %}
+                                <form action="{% url 'cancel_event' event.id %}" method="POST">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="event_id" value="{{ event.id }}">
+                                    <button type="submit" class="btn btn-danger">Cancel</button>
+                                </form>
+                                {% else %}
                                     <p>Class is currently full</p>
                                 {% endif %}
                             {% endif %}
