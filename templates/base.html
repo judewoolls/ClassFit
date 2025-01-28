@@ -26,7 +26,7 @@
 <body class="d-flex flex-column h-100">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">ClassFit</a>
+            <a class="navbar-brand" href="#" aria-label="ClassFit Home">ClassFit</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -35,23 +35,23 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         {% if user.is_authenticated %}
-                        <a class="nav-link" href="{% url 'home' %}">Home</a>
+                        <a class="nav-link" href="{% url 'home' %}" aria-label="Home">Home</a>
                         {% else %}
-                        <a class="nav-link" href="{% url 'account_login' %}">Home</a>
+                        <a class="nav-link" href="{% url 'account_login' %}" aria-label="Home">Home</a>
                         {% endif %}
                     </li>
                     <li class="nav-item">
                         {% if user.is_authenticated %}
-                        <a class="nav-link" onclick="navigateToCurrentDate()">Classes</a>
+                        <a class="nav-link" onclick="navigateToCurrentDate()" aria-label="Classes">Classes</a>
                         {% else %}
-                        <a class="nav-link" href="{% url 'account_login' %}">Classes</a>
+                        <a class="nav-link" href="{% url 'account_login' %}" aria-label="Classes">Classes</a>
                         {% endif %}
                     </li>
                     <li class="nav-item">
                         {% if user.is_authenticated %}
-                        <a class="nav-link" href="{% url 'open_log' %}">Log Book</a>
+                        <a class="nav-link" href="{% url 'open_log' %}" aria-label="Log Book">Log Book</a>
                         {% else %}
-                        <a class="nav-link" href="{% url 'account_login' %}">Log Book</a>
+                        <a class="nav-link" href="{% url 'account_login' %}" aria-label="Log Book">Log Book</a>
                         {% endif %}
                     </li>
                     {% if user.is_authenticated %}

@@ -13,7 +13,7 @@ ClassFit | {{ request.user.username }}
     <div class="row">
         <div class="col-12 col-md-6">
             <h4>Your Upcoming Bookings</h4>
-            <ul class="list-unstyled">
+            <ul class="list-unstyled" aria-label="Upcoming Bookings">
                 {% for booking in bookings %}
                 {% if forloop.counter <= 3 %}
                 <li class="d-flex justify-content-center mb-3">
@@ -40,7 +40,7 @@ ClassFit | {{ request.user.username }}
         </div>
         <div class="col-12 col-md-6">
             <h4>Your Recent Scores</h4>
-            <ul class="list-unstyled">
+            <ul class="list-unstyled" aria-label="Recent Scores">
                 {% for score in scores %}
                 {% if forloop.counter <= 3 %}
                 <li class="d-flex justify-content-center mb-3">
@@ -68,11 +68,11 @@ ClassFit | {{ request.user.username }}
     </div>
     <div class="col-12">
         <h2>Our Leaderboard</h2>
-        <form method="get" action="{% url 'home' %}">
+        <form method="get" action="{% url 'home' %}" aria-label="Leaderboard Filter">
             {{ filter.as_p }}
-            <button type="submit" class="btn btn-primary">Filter</button>
+            <button type="submit" class="btn btn-primary" aria-label="Filter Leaderboard">Filter</button>
         </form>
-        <table id="leaderboard" class="table text-center" style='background-color: white;'>
+        <table id="leaderboard" class="table text-center" style='background-color: white;' aria-label="Leaderboard">
             <thead>
                 <tr>
                     <th>Rank</th>
@@ -105,8 +105,8 @@ ClassFit | {{ request.user.username }}
             <h1>Welcome to ClassFit</h1>
             <p>The ClassFit booking system allows you to book classes and track your progress</p>
             <p>Sign up or log in to get started.</p>
-            <a href="{% url 'account_signup' %}" class="btn btn-primary">Sign Up</a>
-            <a href="{% url 'account_login' %}" class="btn btn-secondary">Log In</a>
+            <a href="{% url 'account_signup' %}" class="btn btn-primary" aria-label="Sign Up">Sign Up</a>
+            <a href="{% url 'account_login' %}" class="btn btn-secondary" aria-label="Log In">Log In</a>
         </div>
     </div>
 </div>

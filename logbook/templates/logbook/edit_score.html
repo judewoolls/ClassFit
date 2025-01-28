@@ -4,10 +4,10 @@
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <form method="post" action="{% url 'edit_score' score.id %}">
+            <form method="post" action="{% url 'edit_score' score.id %}" aria-label="Edit Score Form">
                 {% csrf_token %}
                 {{ scoreform.as_p}}
-                <button type="submit" class="btn btn-success">Submit</button>
+                <button type="submit" class="btn btn-success" aria-label="Submit Edited Score">Submit</button>
             </form>
         </div>
     </div>
@@ -22,8 +22,8 @@
             <h1>Welcome to ClassFit</h1>
             <p>The ClassFit booking system allows you to book classes and track your progress</p>
             <p>Sign up or log in to get started.</p>
-            <a href="{% url 'account_signup' %}" class="btn btn-primary">Sign Up</a>
-            <a href="{% url 'account_login' %}" class="btn btn-secondary">Log In</a>
+            <a href="{% url 'account_signup' %}" class="btn btn-primary" aria-label="Sign Up">Sign Up</a>
+            <a href="{% url 'account_login' %}" class="btn btn-secondary" aria-label="Log In">Log In</a>
         </div>
     </div>
 </div>

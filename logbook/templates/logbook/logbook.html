@@ -16,16 +16,16 @@ ClassFit | Logbook
         <div class="col-12 col-md-6">
             <h2>New Score</h2>
             <div>
-                <form method="post" action="{% url 'open_log' %}">
+                <form method="post" action="{% url 'open_log' %}" aria-label="New Score Form">
                     {% csrf_token %}
                     {{ scoreform.as_p }}
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" aria-label="Submit New Score">Submit</button>
                 </form>
             </div>
         </div>
         <div class="col-12 col-md-6">
             <h2>Recent Scores</h2>
-            <ul class="list-unstyled">
+            <ul class="list-unstyled" aria-label="Recent Scores">
                 {% for score in scores %}
                 {% if forloop.counter <= 3 %}
                 <li class="d-flex justify-content-center mb-3">
@@ -40,7 +40,7 @@ ClassFit | Logbook
                 {% endif %}
                 {% empty %}
                 <li class="d-flex justify-content-center mb-3">
-                    <div class="card text-bg-warning flex-grow-1 mx-2">
+                    <div class="card text-bg-warning flex-grow-1 mx-2" aria-label="No Recent Scores">
                         <div class="card-body">
                             <h5 class="card-title">No Recent Scores</h5>
                             <p class="card-text">You have no recent scores at the moment.</p>
@@ -54,7 +54,7 @@ ClassFit | Logbook
     <div class="row">
         <div class="col-12">
             <h1>All Scores</h1>
-            <ul class="list-unstyled">
+            <ul class="list-unstyled" aria-label="All Scores">
                 {% for score in scores %}
                 <li class="d-flex justify-content-center mb-3">
                     <div class="card text-bg-dark flex-grow-1 mx-2">
@@ -62,10 +62,10 @@ ClassFit | Logbook
                             <h5 class="card-title">{{ score.exercise }}</h5>
                             <p class="card-text">{{ score.reps }} reps @ {{ score.weight }}kg</p>
                             <p>{{ score.created_on }}</p>
-                            <a href="{% url 'edit_score' score.id %}" class="btn btn-info" id="edit-scores-button">Edit</a>
-                            <form method="post" action="{% url 'delete_score' score.id %}" id="delete-scores-form" class="d-inline">
+                            <a href="{% url 'edit_score' score.id %}" class="btn btn-info">Edit</a>
+                            <form method="post" action="{% url 'delete_score' score.id %}" class="d-inline" aria-label="Delete Score Form">
                                 {% csrf_token %}
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger" aria-label="Delete Score">Delete</button>
                             </form>
                         </div>
                     </div>
@@ -93,8 +93,8 @@ ClassFit | Logbook
             <h1>Welcome to the ClassFit Logbook</h1>
             <p>The ClassFit logbook is a platform that helps you track and compare your fitness scores.</p>
             <p>Sign up or log in to get started.</p>
-            <a href="{% url 'account_signup' %}" class="btn btn-primary">Sign Up</a>
-            <a href="{% url 'account_login' %}" class="btn btn-secondary">Log In</a>
+            <a href="{% url 'account_signup' %}" class="btn btn-primary" aria-label="Sign Up">Sign Up</a>
+            <a href="{% url 'account_login' %}" class="btn btn-secondary" aria-label="Log In">Log In</a>
         </div>
     </div>
 </div>
