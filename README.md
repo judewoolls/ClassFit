@@ -242,14 +242,22 @@ Main Python:
 - Each Python file has been validated to PEP8 standards 
 
 Testing Python:
-- None
+- Each Python file has been validated to PEP8 standards
+
+### Automated unit tests
+
+The project has a total of 26 unit tests to test the functionality of the application. As of the most recent deployment all of the tests pass. The tests uses mock data on a separate database used exclusively for testing to avoid the test affecting the database for the deployed site.
+
+> Here is the result of running the tests:
+>
+> ![image](readMe-images/unit-test.png)
 
 ## Impact of AI Analysis
 
-The main tools used:
-
- - ChatGPT
- - GitHub Copilot
+> The main tools used:
+>
+> - ChatGPT
+> - GitHub Copilot
 
 ### What these tools added to the project
 
@@ -267,9 +275,9 @@ Another frustrating part was when passing the date from Django to JavaScript it 
 
 ## Credits
 
-Thanks to [Code Institute](https://github.com/Code-Institute-Solutions/blog/tree/main/11_authorisation/03_custom_template/templates) for the log in and sign up page templates
+>Thanks to [Code Institute](https://github.com/Code-Institute-Solutions/blog/tree/main/11_authorisation/03_custom_template/templates) for the log in and sign up page templates
 
-The browser icon: [Gymnastic icons created by Hexagon075 - Flaticon](https://www.flaticon.com/free-icons/gymnastic)
+>The browser icon: [Gymnastic icons created by Hexagon075 - Flaticon](https://www.flaticon.com/free-icons/gymnastic)
 
 ## Evaluation
 
