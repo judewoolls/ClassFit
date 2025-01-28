@@ -269,6 +269,8 @@ Another frustrating part was when passing the date from Django to JavaScript it 
 
 Thanks to [Code Institute](https://github.com/Code-Institute-Solutions/blog/tree/main/11_authorisation/03_custom_template/templates) for the log in and sign up page templates
 
+The browser icon: [Gymnastic icons created by Hexagon075 - Flaticon](https://www.flaticon.com/free-icons/gymnastic)
+
 ## Evaluation
 
 The ClassFit project successfully meets all the acceptance criteria outlined in the user stories and passes all validation and feature tests. The project was significantly enhanced with the use of AI, specifically GitHub Copilot, which streamlined the development process and improved code quality.
